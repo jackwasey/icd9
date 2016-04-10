@@ -4,7 +4,7 @@ output:
     variant: markdown_github
 ---
 <!--
-Copyright (C) 2014 - 2015  Jack O. Wasey
+Copyright (C) 2014 - 2016  Jack O. Wasey
 
 This file is part of icd9.
 
@@ -52,6 +52,15 @@ patientData <- data.frame(
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/icd9)](https://cran.r-project.org/package=icd9) (RStudio mirror only)
 
 # ICD comorbidities, manipulation and validation
+
+## Obsolete
+
+The _icd9_ package is obsolete and replaced by _icd_ which is backward compatible, and adds ICD-10 support. _icd_ should be available on CRAN soon. _icd9_ should be uninstalled and replaced by _icd_.
+
+Until it is on CRAN, you can try it with:
+```
+devtools::install_github("jackwasey/icd")
+```
 
 ## Main Features
 
