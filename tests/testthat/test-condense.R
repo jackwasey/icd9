@@ -24,7 +24,7 @@ test_that("five digit to five digit code range condenses", {
 })
 
 test_that("condensing a single real codes gives themselves", {
-  expect_that(res <- icd9Condense("61172"), shows_message())
+  expect_message(res <- icd9Condense("61172"))
   expect_equal(res, "61172")
   expect_equal(icd9Condense("61172", onlyReal = FALSE), "61172")
   expect_equal(icd9Condense("143"), "143")
@@ -43,9 +43,9 @@ test_that("condense an ICD-9 code set to minimal group", {
   expect_equal(sort(icd9Condense("98799" %i9sa% "98901", onlyReal = FALSE)),
                sort(c("98799", "988", "98900", "98901")))
   # non-real end of real range
-  expect_that(res <- icd9Condense("988" %i9sa% "98899", onlyReal = TRUE), gives_warning())
+  expect_warning(res <- icd9Condense("988" %i9sa% "98899", onlyReal = TRUE))
   expect_equal(res, "988")
-  expect_that(res <- icd9Condense("9879" %i9sa% "9891", onlyReal = TRUE), gives_warning())
+  expect_warning(res <- icd9Condense("9879" %i9sa% "9891", onlyReal = TRUE))
   expect_equal(res, c("9879", "988", "9890", "9891"))
 })
 
@@ -123,7 +123,7 @@ test_that("condense short range", {
                "Other salmonella infections")
 
   expect_equal(icd9CondenseShort(othersalmonella, onlyReal = TRUE), "003")
-  expect_that(res <- icd9CondenseShort(othersalmonella, onlyReal = FALSE), testthat::not(gives_warning()))
+  expect_warning(res <- icd9CondenseShort(othersalmonella, onlyReal = FALSE), NA)
   expect_equal(res, othersalmonella)
   # missing this leaf node, we can't condense at all
   expect_equal(icd9CondenseShort(othersalmonella[-3], onlyReal = TRUE),
@@ -140,8 +140,7 @@ test_that("condense short range", {
 
   expect_equal(icd9CondenseShort(icd9ChildrenShort("00320", onlyReal = TRUE), onlyReal = TRUE), "00320")
   # majors should be okay, even if not 'real'
-  expect_that(dup_res <- icd9CondenseShort(icd9ChildrenShort("003", onlyReal = TRUE)),
-              testthat::not(gives_warning()))
+  expect_warning(dup_res <- icd9CondenseShort(icd9ChildrenShort("003", onlyReal = TRUE)), NA)
 
   expect_equal(icd9CondenseShort(c("003", "003"), onlyReal = TRUE), "003")
   expect_equal(icd9CondenseShort(c("003", "003"), onlyReal = FALSE), "003")

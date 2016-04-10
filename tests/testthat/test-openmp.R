@@ -26,9 +26,8 @@ test_that("single icd9 code comorbidity", {
 
 test_that("thousands of patients", {
   x <- randomPatients(10000)
-  expect_that(
-    icd9ComorbidQuanDeyo(x, isShort = F, applyHierarchy = T),
-    testthat::not(testthat::throws_error())
+  expect_error(
+    icd9ComorbidQuanDeyo(x, isShort = F, applyHierarchy = T), NA)
   )
 })
 
@@ -43,10 +42,10 @@ test_that("vary everything", {
           options("icd9.chunkSize" = chunkSize)
           # ompChunkSize is not currently not set in CPP code
           options("icd9.ompChunkSize" = ompChunkSize)
-          expect_that(
+          expect_error(
             icd9ComorbidQuanDeyo(randomUnorderedPatients(pts, dz_per_patient),
                                  isShort = FALSE, applyHierarchy = TRUE),
-            testthat::not(throws_error()),
+            NA,
             info = sprintf("pts = %i, dz_per_patient = %i, threads = %i, chunkSize = %i",
                            pts, dz_per_patient, threads, chunkSize)
           )

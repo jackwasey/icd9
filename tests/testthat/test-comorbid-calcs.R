@@ -326,11 +326,9 @@ test_that("get Charlson/Deyo comorbidities for a single patient", {
   mydf <- data.frame(visitId = c("a", "a"),
                      icd9 = c("044.9", "044.9"),
                      stringsAsFactors = FALSE)
-  expect_that(icd9ComorbidQuanDeyo(mydf, isShort = FALSE, return.df = TRUE),
-              testthat::not(throws_error()))
+  expect_error(icd9ComorbidQuanDeyo(mydf, isShort = FALSE, return.df = TRUE), NA)
 
   mydf <- data.frame(visitId = c("a", "a"), icd9 = c("441", "412.93"))
-  expect_that(icd9ComorbidQuanDeyo(mydf, isShort = FALSE, return.df = TRUE),
-              testthat::not(throws_error()))
+  expect_error(icd9ComorbidQuanDeyo(mydf, isShort = FALSE, return.df = TRUE), NA)
 
 })

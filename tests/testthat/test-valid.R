@@ -18,9 +18,9 @@
 context("icd9 validation")
 
 test_that("warning for deprecation of icd9ValidDecimal", {
-  expect_that(icd9ValidDecimal(c("1", "2")), gives_warning())
-  expect_that(icd9ValidShort(c("1", "2")), gives_warning())
-  expect_that(icd9Valid(c("1", "2"), isShort = TRUE), gives_warning())
+  expect_warning(icd9ValidDecimal(c("1", "2")))
+  expect_warning(icd9ValidShort(c("1", "2")))
+  expect_warning(icd9Valid(c("1", "2"), isShort = TRUE))
 })
 
 test_that("icd9IsValidDecimal - rubbish input", {

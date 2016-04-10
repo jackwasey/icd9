@@ -232,7 +232,7 @@ test_that("unsorted hierarchy tests", {
 
 test_that("explain gives appropriate warnings by default", {
   # if we ask for real codes, we should expect all real codes as input:
-  expect_that(icd9CondenseShort("E7777", onlyReal = TRUE, warn = TRUE), gives_warning())
+  expect_warning(icd9CondenseShort("E7777", onlyReal = TRUE, warn = TRUE))
 })
 
 test_that("explain icd9GetChapters bad input", {
@@ -277,10 +277,8 @@ test_that("explain icd9GetChapters simple input", {
 })
 
 test_that("working with named lists of codes, decimal is guessed", {
-  expect_that(icd9ExplainDecimal(list(a = c("001"), b = c("001.1", "001.9"))),
-              testthat::not(gives_warning()))
-  expect_that(icd9Explain(list(a = c("001"), b = c("001.1", "001.9"))),
-              testthat::not(gives_warning()))
+  expect_warning(icd9ExplainDecimal(list(a = c("001"), b = c("001.1", "001.9"))), NA)
+  expect_warning(icd9Explain(list(a = c("001"), b = c("001.1", "001.9"))), NA)
 })
 
 test_that("icd9 descriptions is parsed correctly", {
