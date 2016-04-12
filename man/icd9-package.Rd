@@ -7,6 +7,7 @@
 \alias{package-icd9}
 \title{Tools for Working with ICD-9 Codes, and Finding Comorbidities}
 \description{
+Obsolete: 'icd9' is replaced by CRAN package 'icd'.
 Calculate comorbidities, Charlson scores, perform fast and accurate
 validation, conversion, manipulation, filtering and comparison of ICD-9-CM
 (clinical modification) codes. ICD-9 codes appear numeric but leading and
