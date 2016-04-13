@@ -410,8 +410,5 @@ icd9DiffComorbid <- function(x, y, names = NULL, x.names = NULL, y.names = NULL,
   invisible(out)
 }
 
-#' @title get sequence of column indices of comorbidities
-#' @param cbd matrix or data.frame of comorbidities
-#' @keywords internal
 cr <- function(cbd)
   seq(from = 1 + is.data.frame(cbd), to = ncol(cbd))

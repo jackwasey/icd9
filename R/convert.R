@@ -207,6 +207,8 @@ icd9LongToWide <- function(icd9df,
 
 #' @title convert matrix of comorbidities into data frame, preserving visitId
 #'   information
+#' @description convert matrix of comorbidities into data frame, preserving visitId
+#'   information
 #' @param x Matrix of comorbidities, with row and columns names defined
 #' @param visitId Single character string with name for new column in output
 #'   data frame. Everywhere else, \code{visitId} describes the input data, but
@@ -238,6 +240,8 @@ icd9ComorbidMatToDf <- function(x, visitId = "visitId",
 }
 
 #' @title convert matrix of comorbidities into data frame, preserving visitId
+#'   information
+#' @description convert matrix of comorbidities into data frame, preserving visitId
 #'   information
 #' @param x data frame, with a \code{visitId} column (not necessarily first),
 #'   and other columns with flags for comorbidities, as such column names are

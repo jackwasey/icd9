@@ -33,8 +33,6 @@ parseEverythingAndSave <- function(verbose = TRUE) {
 
 }
 
-#' @title parse almost everything
-#' @keywords internal
 parseAndSaveQuick <- function(verbose = FALSE) {
   if (verbose) message("Parsing RTF file(s) to create icd9Desc descriptions of entire hierarchy")
   devtools::load_data(pkg = ".")

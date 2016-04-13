@@ -276,6 +276,7 @@ icd9ExpandRangeDecimal <- function(start, end, onlyReal = TRUE,
 # icd9Children separate from C++ docs so that I can guess isShort
 #' @name icd9Children
 #' @title Expand ICD-9 codes to all possible sub-codes
+#' @description Expand ICD-9 codes to all possible sub-codes
 #' @template icd9-any
 #' @template icd9-short
 #' @template icd9-decimal

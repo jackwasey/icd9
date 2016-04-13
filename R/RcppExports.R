@@ -58,6 +58,7 @@ icd9DecimalToPartsCpp <- function(icd9Decimal, minorEmpty) {
 }
 
 #' @title Convert ICD-9 codes between short and decimal forms
+#' @description Convert ICD-9 codes between short and decimal forms
 #' @template icd9-short
 #' @template icd9-decimal
 #' @export
@@ -208,20 +209,14 @@ randomMajorCpp <- function(n) {
     .Call('icd9_randomMajorCpp', PACKAGE = 'icd9', n)
 }
 
-#' @title generate random short-form numeric icd9 codes
-#' @keywords internal
 icd9RandomShortN <- function(n = 5L) {
     .Call('icd9_icd9RandomShortN', PACKAGE = 'icd9', n)
 }
 
-#' @title generate random short-form icd9 V codes
-#' @keywords internal
 icd9RandomShortV <- function(n = 5L) {
     .Call('icd9_icd9RandomShortV', PACKAGE = 'icd9', n)
 }
 
-#' @title generate random short-form icd9 E codes
-#' @keywords internal
 icd9RandomShortE <- function(n = 5L) {
     .Call('icd9_icd9RandomShortE', PACKAGE = 'icd9', n)
 }
@@ -235,6 +230,7 @@ icd9RandomShort <- function(n = 5L) {
 
 #' @rdname fastIntToString
 #' @title fast convert integer vector to character vector
+#' @description fast convert integer vector to character vector
 #' @param x td::vector<int>
 #' @param bufferSize int if any input strings are longer than this number (default 16) there will be memory errors.
 #'   No checks done for speed.

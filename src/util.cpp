@@ -130,8 +130,6 @@ Rcpp::NumericVector randomMajorCpp(int	n) {
   return iv;
 }
 
-//' @title generate random short-form numeric icd9 codes
-//' @keywords internal
 // [[Rcpp::export]]
 std::vector<std::string> icd9RandomShortN(std::vector<std::string>::size_type n = 5) {
   VecStr out(n);
@@ -144,8 +142,6 @@ std::vector<std::string> icd9RandomShortN(std::vector<std::string>::size_type n 
   return out;
 }
 
-//' @title generate random short-form icd9 V codes
-//' @keywords internal
 // [[Rcpp::export]]
 std::vector<std::string> icd9RandomShortV(std::vector<std::string>::size_type n = 5) {
   VecStr out(n);
@@ -158,8 +154,6 @@ std::vector<std::string> icd9RandomShortV(std::vector<std::string>::size_type n 
   return out;
 }
 
-//' @title generate random short-form icd9 E codes
-//' @keywords internal
 // [[Rcpp::export]]
 std::vector<std::string> icd9RandomShortE(std::vector<std::string>::size_type n = 5) {
   VecStr out(n);
@@ -201,6 +195,7 @@ std::vector<std::string> icd9RandomShort(std::vector<std::string>::size_type n =
 }
 //' @rdname fastIntToString
 //' @title fast convert integer vector to character vector
+//' @description fast convert integer vector to character vector
 //' @param x td::vector<int>
 //' @param bufferSize int if any input strings are longer than this number (default 16) there will be memory errors.
 //'   No checks done for speed.

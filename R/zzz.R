@@ -52,6 +52,7 @@ release_questions <- function() {
     "Does every file have correct licence information?",
     "Are github pages site refreshed from latest documentation?",
     # code quality:
+    "Is code compiled with -Wall -Wextra -pedantic?",
     "Have you linted, including removing commented code?",
     "Are you happy with the code coverage?",
     "Is every SEXP PROTECT()ed and UNPROTECT()ed?",

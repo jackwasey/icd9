@@ -15,6 +15,9 @@ fastIntToStringRcpp(x)
 \item{bufferSize}{int if any input strings are longer than this number (default 16) there will be memory errors.
 No checks done for speed.}
 }
+\description{
+fast convert integer vector to character vector
+}
 \examples{
 \dontrun{
 pts <- randomPatients(1e7)

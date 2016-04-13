@@ -264,6 +264,7 @@ Rcpp::List icd9DecimalToPartsCpp(const Rcpp::CharacterVector icd9Decimal, const 
 }
 
 //' @title Convert ICD-9 codes between short and decimal forms
+//' @description Convert ICD-9 codes between short and decimal forms
 //' @template icd9-short
 //' @template icd9-decimal
 //' @export

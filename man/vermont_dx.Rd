@@ -12,6 +12,9 @@
 \usage{
 .vermont()
 }
+\description{
+de-identified data from public Vermont source for 2013
+}
 \details{
 Conditions of Release Release of public use data is subject to the
   following conditions, which the requestor agrees to upon accepting copies

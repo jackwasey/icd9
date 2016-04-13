@@ -159,9 +159,6 @@ parseQuanDeyoSas <- function(sasPath = NULL,
   invisible(quanDeyoComorbid)
 }
 
-#' @title Generate Quan's revised Elixhauser comorbidities
-#' @template parse-template
-#' @keywords internal
 parseQuanElix <- function(condense = FALSE,
                           save = FALSE,
                           path = "data") {

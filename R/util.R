@@ -235,10 +235,6 @@ getIcdField <- function(x, icd9Field = NULL) {
 
 getLatestBillableVersion <- function() "32"
 
-#' @title trim null or empty values from a list
-#' @param x list
-#' @return trimmed list
-#' @keywords internal
 listTrimFlat  <-  function(x) {
   suppressWarnings(
     x[sapply(x, length) != 0 &
@@ -249,10 +245,6 @@ listTrimFlat  <-  function(x) {
   )
 }
 
-#' @title swap names and values of a vector
-#' @param x named vector
-#' @return vector
-#' @keywords internal
 swapNamesWithVals <- function(x) {
   assertVector(x, strict = TRUE, any.missing = FALSE, names = "named")
   new_names <- unname(x)

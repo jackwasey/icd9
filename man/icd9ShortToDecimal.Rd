@@ -20,4 +20,7 @@ characters is given in a code, then the digits are greedily assigned to
 hundreds, then tens, then units, before the decimal parts. E.g. "10"
 becomes "010", not "0010"}
 }
+\description{
+Convert ICD-9 codes between short and decimal forms
+}
 

@@ -28,7 +28,6 @@ test_that("thousands of patients", {
   x <- randomPatients(10000)
   expect_error(
     icd9ComorbidQuanDeyo(x, isShort = F, applyHierarchy = T), NA)
-  )
 })
 
 test_that("vary everything", {

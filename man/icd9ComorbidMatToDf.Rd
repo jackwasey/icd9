@@ -19,6 +19,10 @@ here it is for output data.}
 i.e. visitId converted to factor. Default is to follow the current session
 option.}
 }
+\description{
+convert matrix of comorbidities into data frame, preserving visitId
+  information
+}
 \examples{
 longdf <- data.frame(visitId = c("a", "b", "b", "c"),
     icd9 = c("441", "4424", "443", "441"))
