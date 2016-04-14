@@ -30,15 +30,15 @@ test_that("github issue #46 from wmurphyd", {
   set.seed(123)
   # Fill a QuanDeyo comorbidity data frame with random data
   comorbids <- rbind(comorbids, data.frame(
-    visitId = letters[2:10], matrix(runif((ncol(comorbids) - 1) * 9) > 0.7,
-                                    ncol=17, dimnames = list(character(0), names(comorbids[2:18]))
+    visitId = letters[2:10], matrix(runif(9 * (ncol(comorbids) - 1)) > 0.7,
+                                    ncol = 17, dimnames = list(character(0), names(comorbids[2:18]))
     )
   )
   )
-  c2.inv <- cbind(t(comorbids[2,2:18]),c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 6, 6))
+  c2.inv <- cbind(t(comorbids[2, 2:18]), c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 6, 6))
   expect_equivalent(
     icd9CharlsonComorbid(comorbids, applyHierarchy = TRUE)[2],
-    sum(apply(c2.inv,1,prod))
+    sum(apply(c2.inv, 1, prod))
   )
 })
 
@@ -227,7 +227,7 @@ test_that("icd9VanWalravenComorbid score calculation", {
   # Fill a QuanElix comorbidity data frame with random data
   comorbids <- rbind(comorbids,
                      data.frame(visitId = letters[2:10],
-                                matrix(stats::runif((ncol(comorbids) - 1) * 9) > 0.7,
+                                matrix(stats::runif(9 * (ncol(comorbids) - 1)) > 0.7,
                                        ncol = ncol(comorbids) - 1,
                                        dimnames = list(character(0), names(comorbids[2:31])))))
   c2.inv <- cbind(t(comorbids[2, -1]),
@@ -253,7 +253,7 @@ test_that("icd9VanWalraven comodbidity index and score", {
   expect_equivalent(icd9VanWalraven(mydf, visitId = "id", icd9Field = "value"),
                     icd9VanWalravenComorbid(
                       icd9ComorbidQuanElix(mydf, visitId = "id", icd9Field = "value")))
-  expect_equivalent(icd9VanWalraven(mydf, visitId = "id", icd9Field="value", return.df = TRUE),
+  expect_equivalent(icd9VanWalraven(mydf, visitId = "id", icd9Field = "value", return.df = TRUE),
                     data.frame(id = factor(c(1, 2, 3)),
                                    vanWalraven = c(10, 12, -2)))
   expect_equal(
@@ -282,10 +282,10 @@ test_that("github issue #64 - quan revised charleson scores", {
   set.seed(456)
   # Fill a QuanDeyo comorbidity data frame with random data
   comorbids <- rbind(comorbids, data.frame(
-    visitId = letters[2:10], matrix(runif((ncol(comorbids) - 1) * 9) > 0.7,
-                                    ncol=17, dimnames = list(character(0),
+    visitId = letters[2:10], matrix(runif(9 * (ncol(comorbids) - 1)) > 0.7,
+                                    ncol = 17, dimnames = list(character(0),
                                                              names(comorbids[2:18])))))
-  comorbids[,"DM"] <- comorbids[, "DM"] & !comorbids[, "DMcx"]
+  comorbids[, "DM"] <- comorbids[, "DM"] & !comorbids[, "DMcx"]
   comorbids[, "LiverMild"] <- comorbids[, "LiverMild"] & !comorbids[, "LiverSevere"]
   comorbids[, "Cancer"] <- comorbids[, "Cancer"] & !comorbids[, "Mets"]
 
@@ -295,33 +295,33 @@ test_that("github issue #64 - quan revised charleson scores", {
   #omitting scoringSystem argument should use original scores
   expect_equivalent(
     icd9CharlsonComorbid(comorbids, applyHierarchy = TRUE)[2],
-    sum(apply(cbind(t(comorbids[2,2:18]),original_weights),1,prod))
+    sum(apply(cbind(t(comorbids[2, 2:18]), original_weights), 1, prod))
   )
 
   #specify original scores
   expect_equivalent(
     icd9CharlsonComorbid(comorbids, applyHierarchy = TRUE, scoringSystem = "original")[3],
-    sum(apply(cbind(t(comorbids[3,2:18]),original_weights), 1, prod))
+    sum(apply(cbind(t(comorbids[3, 2:18]), original_weights), 1, prod))
   )
   expect_equivalent(
     icd9CharlsonComorbid(comorbids, applyHierarchy = TRUE, scoringSystem = "charlson")[3],
-    sum(apply(cbind(t(comorbids[3,2:18]),original_weights), 1, prod))
+    sum(apply(cbind(t(comorbids[3, 2:18]), original_weights), 1, prod))
   )
 
   #specify quan scores
   expect_equivalent(
     icd9CharlsonComorbid(comorbids, applyHierarchy = TRUE, scoringSystem = "quan")[4],
-    sum(apply(cbind(t(comorbids[4,2:18]),quan_weights), 1, prod))
+    sum(apply(cbind(t(comorbids[4, 2:18]), quan_weights), 1, prod))
   )
 
   #partial matching of scoringSystem argument
   expect_equivalent(
     icd9CharlsonComorbid(comorbids, applyHierarchy = TRUE, scoringSystem = "o")[5],
-    sum(apply(cbind(t(comorbids[5,2:18]),original_weights), 1, prod))
+    sum(apply(cbind(t(comorbids[5, 2:18]), original_weights), 1, prod))
   )
   expect_equivalent(
     icd9CharlsonComorbid(comorbids, applyHierarchy = TRUE, scoringSystem = "q")[6],
-    sum(apply(cbind(t(comorbids[6,2:18]),quan_weights), 1, prod))
+    sum(apply(cbind(t(comorbids[6, 2:18]), quan_weights), 1, prod))
   )
 
   #invalid scoringSystem argument

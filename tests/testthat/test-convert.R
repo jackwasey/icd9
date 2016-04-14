@@ -40,7 +40,7 @@ test_that("extract decimal parts - valid inputs", {
   expect_equal(icd9DecimalToParts("333.3"), list(major = "333", minor = "3"))
   expect_equal(icd9DecimalToParts("444"), list(major = "444", minor = ""))
   expect_equal(icd9DecimalToParts("444", minorEmpty = NA_character_),
-               list(major = "444", minor=NA_character_))
+               list(major = "444", minor = NA_character_))
   expect_equal(icd9DecimalToParts("444", minorEmpty = ""),
                list(major = "444", minor = ""))
   expect_equal(icd9DecimalToParts(c("9.9", "88.88", "777.6")),

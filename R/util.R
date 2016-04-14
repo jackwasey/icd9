@@ -119,7 +119,7 @@ strMultiMatch <- function(pattern, text, dropEmpty = FALSE, ...) {
         x = x,
         m = regexec(
           pattern = pattern,
-          text=x, ...),
+          text = x, ...),
         ...)
     )[ -1]
   )

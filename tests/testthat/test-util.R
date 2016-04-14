@@ -17,12 +17,12 @@
 
 context("test trim, other utils")
 
-test_that("trim with empty inputs" , {
+test_that("trim with empty inputs", {
   expect_equal(trim(character(0)), character(0))
   expect_equal(trim(""), "")
 })
 
-test_that("trim with acceptable inputs" , {
+test_that("trim with acceptable inputs", {
   expect_equal(trim(NA_character_), NA_character_)
   # not necesarily desirable, but this states the expectation.
   expect_equal(trim(NA_integer_), NA_character_)

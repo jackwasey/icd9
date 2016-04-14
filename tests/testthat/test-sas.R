@@ -36,7 +36,7 @@ test_that("basic SAS VALUE declarations can be read into an R list", {
   result <- sasFormatExtract(
     'VALUE $RFRMSOMETHING 100-102 = "HTN" 103,104 = "CHF"')
   expect_equal(result, list("$RFRMSOMETHING" =
-                              list(HTN = "100-102", CHF=c("103", "104")))
+                              list(HTN = "100-102", CHF = c("103", "104")))
   )
 
 

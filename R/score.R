@@ -97,7 +97,7 @@ icd9CharlsonComorbid <- function(x, visitId = NULL, applyHierarchy = FALSE,
                                  scoringSystem = c("original", "charlson", "quan")) {
   stopifnot(is.data.frame(x) || is.matrix(x))
   stopifnot(ncol(x) - is.data.frame(x) == 17)
-  if(match.arg(scoringSystem) == "quan") {
+  if (match.arg(scoringSystem) == "quan") {
     weights <- c(0, 2, 0, 0, 2, 1, 1, 0, 2, 0,
                  1, 2, 1, 2, 4, 6, 4)
   } else {
@@ -105,7 +105,7 @@ icd9CharlsonComorbid <- function(x, visitId = NULL, applyHierarchy = FALSE,
                  2, 2, 2, 2, 3, 6, 6)
   }
   if (applyHierarchy) {
-    x[,"DM"] <- x[, "DM"] & !x[, "DMcx"]
+    x[, "DM"] <- x[, "DM"] & !x[, "DMcx"]
     x[, "LiverMild"] <- x[, "LiverMild"] & !x[, "LiverSevere"]
     x[, "Cancer"] <- x[, "Cancer"] & !x[, "Mets"]
   } else {
@@ -307,7 +307,7 @@ icd9VanWalravenComorbid <- function(x, visitId = NULL, applyHierarchy = FALSE) {
                9, 12, 4, 0, 3, -4, 6, 5, -2, -2, 0, -7, 0, -3)
 
   if (applyHierarchy) {
-    x[,"DM"] <- x[, "DM"] & !x[, "DMcx"]
+    x[, "DM"] <- x[, "DM"] & !x[, "DMcx"]
     x[, "Tumor"] <- x[, "Tumor"] & !x[, "Mets"]
   } else {
     stopifnot(!any(x[, "DM"] & x[, "DMcx"]))

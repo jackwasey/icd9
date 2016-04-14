@@ -50,10 +50,10 @@ complexPoaPatients <- data.frame(
 )
 
 randomPatientsData <- data.frame(
-  visitId = sample(seq(1, np), replace = TRUE, size=n),
+  visitId = sample(seq(1, np), replace = TRUE, size = n),
   icd9 = randomShortIcd9,
-  poa = as.factor(sample(x=c("Y", "N", "n", "n", "y", "X", "E", "", NA),
-                         replace = TRUE, size=n))
+  poa = as.factor(sample(x = c("Y", "N", "n", "n", "y", "X", "E", "", NA),
+                         replace = TRUE, size = n))
 )
 
 # random patients with icd9 codes selected from ahrq data

@@ -65,7 +65,7 @@ icd9DropLeadingZeroesDecimal <- function(icd9Decimal) {
     X = strMultiMatch(
       pattern = "[[:space:]]*([EeVv]?)(0*)([\\.[:digit:]]+)[[:space:]]*",
       text = icd9Decimal),
-    FUN = function(x) if (length(x) > 0) sprintf("%s%s", x[1], x[3]) else NA_character_ ,
+    FUN = function(x) if (length(x) > 0) sprintf("%s%s", x[1], x[3]) else NA_character_,
     FUN.VALUE = character(1)
   )
   out

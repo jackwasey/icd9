@@ -33,7 +33,7 @@ randomUnorderedPatients <- function(num_patients = 50000, dz_per_patient = 20,
     visitId = sample(seq(1, pts), replace = TRUE, size = n),
     icd9 = c(randomShortIcd9(round(n / 2)), randomShortAhrq(n - round(n / 2))),
     poa = as.factor(
-      sample(x = c("Y","N", "n", "n", "y", "X", "E", "", NA),
+      sample(x = c("Y", "N", "n", "n", "y", "X", "E", "", NA),
              replace = TRUE, size = n)),
     stringsAsFactors = FALSE
   )
@@ -57,6 +57,6 @@ randomDecimalIcd9 <- function(n = 50000)
 
 runOpenMPVecInt <- function(n = 4, np = 2, threads = 6, chunkSize = 32) {
   pts <- randomPatients(n, np = np)
-  icd9ComorbidShortCpp(pts,icd9::ahrqComorbid, threads = threads, chunkSize = chunkSize)
+  icd9ComorbidShortCpp(pts, icd9::ahrqComorbid, threads = threads, chunkSize = chunkSize)
 }
 # nocov end

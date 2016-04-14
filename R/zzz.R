@@ -18,9 +18,10 @@
 # nocov start
 
 .onAttach <- function(libname, pkgname) {
-  packageStartupMessage(
-    "The icd9 package is now deprecated. The new 'icd' package i son CRAN and has ICD-10 support and bug-fixes.
-All the functions available in 'icd9' have been preserved in 'icd', but a simpler set of function names is also available.
+  packageStartupMessage("The icd9 package is now deprecated. ",
+"The new 'icd' package is on CRAN and has ICD-10 support and bug-fixes. ",
+"All the functions available in 'icd9' have been preserved in 'icd', ",
+"but a simpler set of function names is also available.", "
 
 To install it, use:
 install.packages(\"icd\")

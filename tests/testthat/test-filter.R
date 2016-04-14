@@ -19,9 +19,9 @@ context("test filtering on POA")
 
 test_that("filter POA - not a data frame", {
   expect_error(icd9FilterPoaNo(list(pollo = "loco")))
-  expect_error(icd9FilterPoaNotYes(visitId=c("1","2"),
-                                   icd9 = c("1","2"),
-                                   poa = c("Y","N")))
+  expect_error(icd9FilterPoaNotYes(visitId = c("1", "2"),
+                                   icd9 = c("1", "2"),
+                                   poa = c("Y", "N")))
 })
 
 test_that("filter POA - no poa field", {
@@ -119,7 +119,7 @@ test_that("filter POA - poa upper and lower case", {
 test_that("filter POA - just Y and N should be complementary", {
   # take any data frame to start out:
   dfrm <- testTwenty;
-  dfrm <- dfrm[dfrm[["poa"]] %in% c("Y", "N", "y", "n"),]
+  dfrm <- dfrm[dfrm[["poa"]] %in% c("Y", "N", "y", "n"), ]
   expect_identical(icd9FilterPoaNo(dfrm),  icd9FilterPoaNotYes(dfrm))
   expect_identical(icd9FilterPoaYes(dfrm), icd9FilterPoaNotNo(dfrm))
 })
