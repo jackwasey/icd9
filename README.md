@@ -1,5 +1,5 @@
 <!--
-Copyright (C) 2014 - 2015  Jack O. Wasey
+Copyright (C) 2014 - 2016  Jack O. Wasey
 
 This file is part of icd9.
 
@@ -20,10 +20,19 @@ along with icd9. If not, see <http:#www.gnu.org/licenses/>.
 icd9
 ====
 
-[![Build Status](https://travis-ci.org/jackwasey/icd9.svg?branch=master)](https://travis-ci.org/jackwasey/icd9) [![Coverage Status](https://coveralls.io/repos/jackwasey/icd9/badge.svg?branch=master)](https://coveralls.io/r/jackwasey/icd9?branch=master) [![CRAN version](http://www.r-pkg.org/badges/version/icd9)](https://cran.r-project.org/package=icd9) [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/icd9)](https://cran.r-project.org/package=icd9) (RStudio mirror only)
+[![Build Status](https://travis-ci.org/jackwasey/icd9.svg?branch=master)](https://travis-ci.org/jackwasey/icd9) [![Coverage Status](https://coveralls.io/repos/github/jackwasey/icd9/badge.svg?branch=master)](https://coveralls.io/r/jackwasey/icd9?branch=master) [![CRAN version](http://www.r-pkg.org/badges/version/icd9)](https://cran.r-project.org/package=icd9) [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/icd9)](https://cran.r-project.org/package=icd9) (RStudio mirror only)
 
 ICD comorbidities, manipulation and validation
 ==============================================
+
+Obsolete
+--------
+
+The *icd9* package is obsolete and replaced by *icd* which is backward compatible, and adds ICD-10 support. *icd* should be available on CRAN soon. *icd9* should be uninstalled and replaced by *icd*.
+
+Until it is on CRAN, you can try it with:
+
+    devtools::install_github("jackwasey/icd")
 
 Main Features
 -------------
