@@ -20,8 +20,8 @@ library("magrittr")
 library("testthat")
 do_slow_tests <- FALSE
 do_online_tests <- FALSE
-if (identical(Sys.getenv("COVR"), "true")) {
+if (identical(tolower(Sys.getenv("ICD_SLOW_TESTS")), "true")) {
+  message("environment variable ICD_SLOW_TESTS found to be true, so doing slow tests")
   do_slow_tests <- TRUE
-  do_online_tests <- TRUE
 }
 test_check("icd9")
