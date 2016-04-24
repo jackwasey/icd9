@@ -16,7 +16,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with icd9. If not, see <http:#www.gnu.org/licenses/>.
 -->
-<!-- README.md is generated from README.Rmd. Please edit that file and render with rmarkdown::render("README.Rmd")-->
+<!-- README.md is generated from README.Rmd. Please edit that file and render with rmarkdown::render("README.Rmd")
+-->
 icd9
 ====
 
@@ -30,9 +31,7 @@ Obsolete
 
 The *icd9* package is obsolete and replaced by *icd* which is backward compatible, and adds ICD-10 support. *icd* should be available on CRAN soon. *icd9* should be uninstalled and replaced by *icd*.
 
-Until it is on CRAN, you can try it with:
-
-    devtools::install_github("jackwasey/icd")
+    install.packages("icd", repos = "https://cloud.r-project.org")
 
 Main Features
 -------------
