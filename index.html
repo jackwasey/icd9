@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>icd9 by jackwasey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">icd9</h1>
+      <h2 class="project-tagline">Obsolete, please use &#39;icd&#39; instead for ICD-9 and ICD-10 comorbidities, manipulation and validation in R</h2>
+      <a href="https://github.com/jackwasey/icd9" class="btn">View on GitHub</a>
+      <a href="https://github.com/jackwasey/icd9/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/jackwasey/icd9/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      
+
+
+
+<h1>
+<a id="icd9" class="anchor" href="#icd9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>icd9</h1>
+
+<p><a href="https://travis-ci.org/jackwasey/icd9"><img src="https://travis-ci.org/jackwasey/icd9.svg?branch=master" alt="Build Status"></a> <a href="https://coveralls.io/r/jackwasey/icd9?branch=master"><img src="https://coveralls.io/repos/github/jackwasey/icd9/badge.svg?branch=master" alt="Coverage Status"></a> <a href="https://cran.r-project.org/package=icd9"><img src="http://www.r-pkg.org/badges/version/icd9" alt="CRAN version"></a> <a href="https://cran.r-project.org/package=icd9"><img src="http://cranlogs.r-pkg.org/badges/icd9" alt="CRAN RStudio mirror downloads"></a> (RStudio mirror only)</p>
+
+<h1>
+<a id="icd-comorbidities-manipulation-and-validation" class="anchor" href="#icd-comorbidities-manipulation-and-validation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ICD comorbidities, manipulation and validation</h1>
+
+<h2>
+<a id="obsolete" class="anchor" href="#obsolete" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Obsolete</h2>
+
+<p>The <em>icd9</em> package is obsolete and replaced by <em>icd</em> which is backward compatible, and adds ICD-10 support. <em>icd</em> should be available on CRAN soon. <em>icd9</em> should be uninstalled and replaced by <em>icd</em>.</p>
+
+<pre><code>install.packages("icd", repos = "https://cloud.r-project.org")
+</code></pre>
+
+<h2>
+<a id="main-features" class="anchor" href="#main-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Main Features</h2>
+
+<ul>
+<li>  assignment of patients to high level comorbidities based on admission or discharge ICD-9 codes
+
+<ul>
+<li>  several mappings of ICD-9 codes to comorbidities are included (Quan, Deyo, Elixhauser, AHRQ)</li>
+<li>  very fast assignment of ICD-9 codes to comorbidities (using C and C++ internally, with automatic parallel execution using OpenMP when available)</li>
+</ul>
+</li>
+<li>  Charlson and Van Walvaren score calculations</li>
+<li>  validation of ICD-9 codes from different annual revisions of ICD-9-CM</li>
+<li>  summarizing ICD-9 codes into groups, and to human-readable descriptions</li>
+<li>  correct conversion between different representations of ICD-9 codes, with and without a decimal point</li>
+<li>  comprehensive test suite to increase confidence in accurate processing of ICD-9 codes.</li>
+</ul>
+
+<h2>
+<a id="new-since-last-cran-release" class="anchor" href="#new-since-last-cran-release" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>New since last CRAN release:</h2>
+
+<ul>
+<li>  further performance increases: 1 million ICD-9 codes assigned to comorbidities in less than a second</li>
+<li>  logical matrix or data.frame for comorbidity output and manipulation</li>
+<li>  see NEWS.md and github <a href="https://github.com/jackwasey/icd9/commits/master">changelog</a> for more details</li>
+<li>  minor update to fix an obscure memory leak found with address sanitizer.</li>
+</ul>
+
+<h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p>Calculate comorbidities, Charlson scores, perform fast and accurate validation, conversion, manipulation, filtering and comparison of ICD-9-CM (clinical modification) codes. ICD-9 codes appear numeric but leading and trailing zeroes, and both decimal and non-decimal "short" format codes exist. The package enables a work flow from raw lists of ICD-9 codes from hospital billing databases to comorbidities. ICD-9 to comorbidity mappings from Quan (Deyo and Elixhauser versions), Elixhauser and AHRQ included. Any other mapping of codes, such as ICD-10, to comorbidities can be used.</p>
+
+<h2>
+<a id="relevance" class="anchor" href="#relevance" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Relevance</h2>
+
+<p>ICD-9 codes are still in heavy use around the world, particularly in the USA where the ICD-9-CM (Clinical Modification) is in widespread use. ICD-10 and the corresponding ICD-10-CM are imminent, however a vast amount of patient data is recorded with ICD-9 codes of some kind: this package enables their use in R. A common requirement for medical research involving patients is determining new or existing comorbidities. This is often reported in <em>Table 1</em> of research papers to demonstrate the similarity or differences of groups of patients. This package is focussed on fast and accurate generation of this comorbidity information from raw lists of ICD-9 codes.</p>
+
+<h2>
+<a id="icd-9-code-types" class="anchor" href="#icd-9-code-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ICD-9 code types</h2>
+
+<p>ICD-9 codes are not numbers, and great care is needed when matching individual codes and ranges of codes. It is easy to make mistakes, hence the need for this package. ICD-9 codes can be presented in <em>short</em> 5 character format, or <em>decimal</em> format, with a decimal place separating the code into two groups. There are also codes beginning with V and E which have different validation rules. Zeroes after a decimal place are meaningful, so numeric ICD-9 codes cannot be used in most cases. In addition, most clinical databases contain invalid codes, and even decimal and non-decimal format codes in different places. This package primarily deals with ICD-9-CM (Clinical Modification) codes, but should be applicable or easily extendible to the original WHO ICD-9 system.</p>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+
+<p>See the vignette and code help for many more. Here's a taste:</p>
+
+<div class="highlight highlight-source-r"><pre><span class="pl-smi">patientData</span>
+<span class="pl-c">#&gt;   visitId  icd9  poa</span>
+<span class="pl-c">#&gt; 1    1000 40201    Y</span>
+<span class="pl-c">#&gt; 2    1000  2258 &lt;NA&gt;</span>
+<span class="pl-c">#&gt; 3    1000  7208    N</span>
+<span class="pl-c">#&gt; 4    1000 25001    Y</span>
+<span class="pl-c">#&gt; 5    1001 34400    X</span>
+<span class="pl-c">#&gt; 6    1001  4011    Y</span>
+<span class="pl-c">#&gt; 7    1002  4011    E</span>
+
+<span class="pl-c"># reformat input data as needed</span>
+<span class="pl-smi">patientData</span> %<span class="pl-k">&gt;</span>% <span class="pl-smi">icd9LongToWide</span> <span class="pl-c"># everything works well with magrittr %&gt;%</span>
+<span class="pl-c">#&gt;      [,1]    [,2]   [,3]   [,4]   </span>
+<span class="pl-c">#&gt; 1000 "40201" "2258" "7208" "25001"</span>
+<span class="pl-c">#&gt; 1001 "34400" "4011" NA     NA     </span>
+<span class="pl-c">#&gt; 1002 "4011"  NA     NA     NA</span>
+
+<span class="pl-c"># get comorbidities:</span>
+icd9ComorbidQuanDeyo(<span class="pl-smi">patientData</span>)
+<span class="pl-c">#&gt;         MI   CHF   PVD Stroke Dementia Pulmonary Rheumatic   PUD LiverMild</span>
+<span class="pl-c">#&gt; 1000 FALSE  TRUE FALSE  FALSE    FALSE     FALSE     FALSE FALSE     FALSE</span>
+<span class="pl-c">#&gt; 1001 FALSE FALSE FALSE  FALSE    FALSE     FALSE     FALSE FALSE     FALSE</span>
+<span class="pl-c">#&gt; 1002 FALSE FALSE FALSE  FALSE    FALSE     FALSE     FALSE FALSE     FALSE</span>
+<span class="pl-c">#&gt;         DM  DMcx Paralysis Renal Cancer LiverSevere  Mets   HIV</span>
+<span class="pl-c">#&gt; 1000  TRUE FALSE     FALSE FALSE  FALSE       FALSE FALSE FALSE</span>
+<span class="pl-c">#&gt; 1001 FALSE FALSE      TRUE FALSE  FALSE       FALSE FALSE FALSE</span>
+<span class="pl-c">#&gt; 1002 FALSE FALSE     FALSE FALSE  FALSE       FALSE FALSE FALSE</span>
+
+<span class="pl-c"># find diagnoses present on admission:</span>
+icd9FilterPoa(<span class="pl-smi">patientData</span>)
+<span class="pl-c">#&gt;   visitId  icd9</span>
+<span class="pl-c">#&gt; 1    1000 40201</span>
+<span class="pl-c">#&gt; 4    1000 25001</span>
+<span class="pl-c">#&gt; 6    1001  4011</span></pre></div>
+
+<p>Note that reformatting from wide to long and back is not as straightforward as using the various Hadley Wickham tools for doing this: knowing the more detailed structure of the data let's us do this better for the case of dealing with ICD codes.</p>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h2>
+
+<p>The latest version is available in <a href="https://github.com/jackwasey/icd9">github</a> and can be installed with:</p>
+
+<pre><code>install.packages("devtools") # if needed
+devtools::install_github("jackwasey/icd9")
+
+install.packages("magrittr") # recommended, but not required
+</code></pre>
+
+<p>The <em>master</em> branch at github should always build and pass all tests and R CMD check, and will be similar or identical to the most recent CRAN release. The CRAN releases are stable milestones. Contributions and bug reports are encouraged.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/jackwasey/icd9">icd9</a> is maintained by <a href="https://github.com/jackwasey">jackwasey</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
