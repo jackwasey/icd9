@@ -127,7 +127,7 @@ expandRangeWorker <- function(start, end, lookup, onlyReal,
   if (excludeAmbiguousStart) {
     # just remove those codes at the beginning which have children not in the output
     # let's take the first 5, to cover cases like 100, 101, 102.1, 102.11, 102.2
-    starts <- tail(out, )
+    starts <- tail(out)
     for (s in starts) {
       if (any(icd9ChildrenShort(s, onlyReal = onlyReal) %nin% out))
         out <- out[-which(out == s)]

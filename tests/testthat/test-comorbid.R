@@ -126,7 +126,7 @@ test_that("can condense the big lists of comorbidities without errors", {
       expect_warning(ahrq <- lapply(ahrqComorbid, icd9CondenseShort, onlyReal = onlyReal))
       expect_warning(quanDeyo <- lapply(quanDeyoComorbid, icd9Condense, onlyReal))
       expect_warning(quanElix <- lapply(quanElixComorbid,
-                                     icd9Condense, onlyReal))
+                                        icd9Condense, onlyReal))
       expect_warning(elix <- lapply(elixComorbid, icd9Condense, onlyReal))
     }
     else {
@@ -547,7 +547,6 @@ test_that("disordered visit ids", {
 })
 
 test_that("diff comorbid works", {
-  expect_error(icd9DiffComorbid(bad_input)) # list, but not list of character vectors
   expect_error(icd9DiffComorbid(bad_input, bad_input))
 
   # no warning or error for good data
@@ -572,7 +571,7 @@ test_that("diff comorbid works", {
   expect_error(
     utils::capture.output(
       resq <- icd9DiffComorbid(quanElixComorbid, quanDeyoComorbid, show = TRUE)
-      ), NA
+    ), NA
   )
 
 })

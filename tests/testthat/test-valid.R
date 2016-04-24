@@ -337,7 +337,6 @@ mixInvalidPts <- data.frame(
 )
 
 test_that("filter valid - bad input", {
-  expect_error(icd9FilterValid())
   expect_error(icd9FilterValid(list(j = "k")))
 })
 

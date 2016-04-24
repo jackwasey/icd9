@@ -23,21 +23,21 @@ strim <- function(x) {
 }
 
 # very quick, but drops any encoding labels
-trim <- function (x) {
+trim <- function(x) {
   nax <- is.na(x)
   x[!nax] <- .Call("icd9_trimCpp", PACKAGE = "icd9", as.character(x[!nax]))
   x
 }
 
 allIsNumeric <- function(x, extras = c(".", "NA", NA)) {
-  old <- options(warn = - 1)
+  old <- options(warn = -1)
   on.exit(options(old))
   xs <- x[x %nin% c("", extras)]
   !anyNA(as.numeric(xs))
 }
 
 asNumericNoWarn <- function(x) {
-  old <- options(warn = - 1)
+  old <- options(warn = -1)
   on.exit(options(old))
   if (is.factor(x)) x <- levels(x)[x]
   as.numeric(x)
@@ -257,7 +257,7 @@ swapNamesWithVals <- function(x) {
 getNonASCII <- function(x)
   x[isNonASCII(x)]
 
-isNonASCII <- function (x) {
+isNonASCII <- function(x) {
   is.na(iconv(x, from = "latin1", to = "ASCII"))
 }
 

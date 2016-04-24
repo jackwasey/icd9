@@ -70,8 +70,8 @@ parseLeafDescriptionsAll <- function(save = FALSE, fromWeb = FALSE, verbose = FA
   versions <- data_sources$version
   if (verbose) message("Available versions of sources are: ", paste(versions, collapse = ", "))
   icd9Billable <- list()
-for (v in versions)     icd9Billable[[v]] <- parseLeafDescriptionsVersion(version = v, save = save,
-                                                                                fromWeb = fromWeb, verbose = verbose)
+  for (v in versions)     icd9Billable[[v]] <- parseLeafDescriptionsVersion(version = v, save = save,
+                                                                            fromWeb = fromWeb, verbose = verbose)
 
   # and in my utils.R  getNonASCII(charactervector)
   if (save) saveInDataDir("icd9Billable")
@@ -94,7 +94,7 @@ for (v in versions)     icd9Billable[[v]] <- parseLeafDescriptionsVersion(versio
 #' @return invisibly return the result
 #' @keywords internal
 parseLeafDescriptionsVersion <- function(version = getLatestBillableVersion(), save = FALSE,
-                                             fromWeb = FALSE, verbose = FALSE) {
+                                         fromWeb = FALSE, verbose = FALSE) {
   assertString(version)
   assertFlag(save)
   assertFlag(fromWeb)
