@@ -5,6 +5,7 @@ box: rocker/hadleyverse
 build:
   steps:
     - jimhester/r-dependencies
+        github_packages: jimhester/covr jimhester/withr
     - jimhester/r-check
     - jimhester/r-lint
     - jackwasey/r-coverage
